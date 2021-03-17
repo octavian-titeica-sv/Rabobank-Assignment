@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.csvreader.domain.model.UserModel
 
-class UsersAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class UsersAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var users = listOf<UserModel>()
         set(value) {

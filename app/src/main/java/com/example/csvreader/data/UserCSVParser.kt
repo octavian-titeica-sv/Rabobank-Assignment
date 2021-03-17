@@ -1,9 +1,9 @@
 package com.example.csvreader.data
 
+import com.example.csvreader.domain.model.UserModel
 import com.example.csvreader.domain.util.EMPTY_STRING
 import com.example.csvreader.domain.util.ListOfList
 import com.example.csvreader.domain.util.convertStringToDate
-import com.example.csvreader.domain.model.UserModel
 
 /**
  * Class meant to parse the entries provided from a CSV into a list of users.

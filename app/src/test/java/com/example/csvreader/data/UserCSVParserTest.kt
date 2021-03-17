@@ -23,17 +23,17 @@ class UserCSVParserTest {
 
     @Test
     fun `given the entries, when the parser is build, then the corresponding user is returned`() {
-        //when
+        // when
         val result = userParser.build()
 
-        //then
+        // then
         assert(result == listOf(expectedUserModel))
     }
 
     @Test
     fun `given the csv file header, when attributes are shuffled, then the parsing is successful`() {
         repeat(10) {
-            //given
+            // given
             val seed = System.nanoTime()
             attributes.shuffle(Random(seed))
             entries.shuffle(Random(seed))
@@ -41,11 +41,11 @@ class UserCSVParserTest {
             userParser.attributes(attributes)
             userParser.entries(entries)
 
-            //when
+            // when
             val result = userParser.build()
             val userResult = result[0]
 
-            //then
+            // then
             assert(result.size == 1)
             assert(userResult == expectedUserModel)
         }
@@ -53,65 +53,65 @@ class UserCSVParserTest {
 
     @Test
     fun `given the shouldIgnoreInvalidFields flag is true, when the name of the user is empty, then the user without name is returned`() {
-        //given
+        // given
         userParser.shouldIgnoreInvalidFields(true)
         userParser.entries(mutableListOf(listOf("", "Jansen", "5", "1978-01-02T00:00:00")))
 
-        //when
+        // when
         val result = userParser.build()
 
-        //then
+        // then
         assert(result.size == 1)
         assert(result[0] == expectedUserModel.copy(firstName = ""))
     }
 
     @Test
     fun `given the shouldIgnoreInvalidFields flag is true, when the surname of the user is empty, then the user without surname is returned`() {
-        //given
+        // given
         userParser.shouldIgnoreInvalidFields(true)
         userParser.entries(mutableListOf(listOf("Theo", "", "5", "1978-01-02T00:00:00")))
 
-        //when
+        // when
         val result = userParser.build()
 
-        //then
+        // then
         assert(result.size == 1)
         assert(result[0] == expectedUserModel.copy(surName = ""))
     }
 
     @Test
     fun `given the shouldIgnoreInvalidFields flag is false, when the name of the user is empty, then the specific user isn't returned`() {
-        //given
+        // given
         userParser.shouldIgnoreInvalidFields(false)
         userParser.entries(mutableListOf(listOf("", "Jansen", "5", "1978-01-02T00:00:00")))
 
-        //when
+        // when
         val result = userParser.build()
 
-        //then
+        // then
         assert(result.isEmpty())
     }
 
     @Test
     fun `given the shouldIgnoreInvalidFields flag is false, when the surname of the user is empty, then the specific user isn't returned`() {
-        //given
+        // given
         userParser.shouldIgnoreInvalidFields(false)
         userParser.entries(mutableListOf(listOf("Theo", "", "5", "1978-01-02T00:00:00")))
 
-        //when
+        // when
         val result = userParser.build()
 
-        //then
+        // then
         assert(result.isEmpty())
     }
 
     @Test
     fun `given an entry row, when the date of birth field is empty, then the user date of birth is going to be empty`() {
-        //given
+        // given
         userParser.shouldIgnoreInvalidFields(false)
         userParser.entries(mutableListOf(listOf("Theo", "Jansen", "5", "")))
 
-        //when
+        // when
         var result = listOf<UserModel>()
         try {
             result = userParser.build()
@@ -119,7 +119,7 @@ class UserCSVParserTest {
             assert(e is ParseException)
         }
 
-        //then
+        // then
         assert(result[0] == expectedUserModel.copy(dateOfBirth = ""))
     }
 }

@@ -3,14 +3,13 @@ package com.example.csvreader.data
 import android.content.Context
 import com.example.csvreader.R
 import com.example.csvreader.domain.exceptions.CSVParsingException
+import com.example.csvreader.domain.model.UserModel
 import com.example.csvreader.domain.util.COMMA_CHAR
 import com.example.csvreader.domain.util.EMPTY_STRING
 import com.example.csvreader.domain.util.ESCAPED_QUOTE_STRING
 import com.example.csvreader.domain.util.ListOfList
-import com.example.csvreader.domain.util.MutableListOfList
 import com.example.csvreader.domain.util.NUMBER_OF_EXPECTED_ATTRIBUTES
 import com.example.csvreader.domain.util.QUOTE_CHAR
-import com.example.csvreader.domain.model.UserModel
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -72,7 +71,7 @@ class CSVFileReader constructor(private val context: Context) {
 
         val charArray = separatedLine.toCharArray()
         for (char in charArray) {
-            when(char) {
+            when (char) {
                 delimiter -> {
                     quoteOpened = quoteOpened.not()
                 }
@@ -84,14 +83,20 @@ class CSVFileReader constructor(private val context: Context) {
                         token += char
                     }
                 }
-                else -> token+=char
+                else -> token += char
             }
         }
 
-        return validateLine(result.map {
-            it.replace(ESCAPED_QUOTE_STRING, EMPTY_STRING)
-            it.trim()
-        }, isHeader)
+        return validateLine(
+            result.map {
+                it.replace(
+                    ESCAPED_QUOTE_STRING,
+                    EMPTY_STRING
+                )
+                it.trim()
+            },
+            isHeader
+        )
     }
 
     /**
@@ -100,7 +105,7 @@ class CSVFileReader constructor(private val context: Context) {
      * number of expected attributes (NUMBER_OF_EXPECTED_ATTRIBUTES).
      */
     @Throws(Exception::class)
-    private fun validateLine(entriesList: List<String>, isHeader: Boolean) : List<String> {
+    private fun validateLine(entriesList: List<String>, isHeader: Boolean): List<String> {
         if (entriesList.size == NUMBER_OF_EXPECTED_ATTRIBUTES) {
             return entriesList
         } else {

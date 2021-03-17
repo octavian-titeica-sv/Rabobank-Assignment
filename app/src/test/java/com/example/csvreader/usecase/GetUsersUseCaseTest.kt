@@ -34,34 +34,36 @@ class GetUsersUseCaseTest {
     @Test
     fun `given a valid input stream, when the use case is executed successfully, then a list of users is emitted`() {
         runBlockingTest {
-            //given
+            // given
             val initialUserState = UserResponse()
             coEvery { fileParserRepository.parseFile() } returns flowOf(listOf(userModel))
 
-            //when
+            // when
             val result = getUsersUseCase().toList()
 
-            //then
-            assert(result == listOf(
-                initialUserState.copy(loading = true),
-                initialUserState.copy(result = listOf(userModel), loading = false)
-            ))
+            // then
+            assert(
+                result == listOf(
+                    initialUserState.copy(loading = true),
+                    initialUserState.copy(result = listOf(userModel), loading = false)
+                )
+            )
         }
     }
 
     @Test
     fun `given a valid in put stream, when the use case fails with an exception, then an error state is emitted`() {
         runBlockingTest {
-            //given
+            // given
             val initialUserState = UserResponse()
             val exception = Exception("test exception message")
             coEvery { fileParserRepository.parseFile() } returns flow { throw exception }
 
-            //when
+            // when
             val result = getUsersUseCase().toList()
             val errorState = result[1]
 
-            //then
+            // then
             assert(result[0] == initialUserState.copy(loading = true))
             assert(!errorState.loading)
             assert(errorState.error?.message == exception.message)
