@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CSV Reader</string>
+
+    <!-- User item strings -->
+    <string name="user_name">%1s %2s</string>
+    <string name="issue_count">Issue count: %d</string>
+    <string name="date_of_birth">Date of birth: %s</string>
+</resources>

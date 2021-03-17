@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/user_item_padding_start_end"
+    android:paddingTop="@dimen/user_item_padding_top_bottom"
+    android:paddingEnd="@dimen/user_item_padding_start_end"
+    android:paddingBottom="@dimen/user_item_padding_top_bottom">
+
+    <TextView
+        android:id="@+id/user_name_text_view"
+        style="@style/BigText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="User Name" />
+
+    <TextView
+        android:id="@+id/issue_count_text_view"
+        style="@style/NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_name_text_view"
+        tools:text="@string/issue_count" />
+
+    <TextView
+        android:id="@+id/user_date_of_birth_text_view"
+        style="@style/NormalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/issue_count_text_view"
+        tools:text="@string/date_of_birth" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
