@@ -31,7 +31,7 @@
   - This layer contains the classes used to read and parse an input file.
   - CSVFileReader class reads an input file and exposes its contents as a list of strings, each element of the list
   representing a line from the provided input file.
-  - UserBuilder class holds the purpose of building an user based on a line provided by CSVFileReader. As its name
+  - UserCSVParser class holds the purpose of building an user based on a line provided by CSVFileReader. As its name
   suggests, this class relies on builder pattern.
 
 # App
