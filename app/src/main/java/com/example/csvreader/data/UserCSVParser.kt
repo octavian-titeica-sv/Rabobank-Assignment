@@ -33,16 +33,11 @@ class UserCSVParser {
     fun entries(entries: ListOfList<String>) = apply { this.entries = entries }
     fun shouldIgnoreInvalidFields(shouldIgnore: Boolean) = apply { this.shouldIgnoreInvalidFields = shouldIgnore }
 
-    fun build() : List<UserModel> {
-        val result = mutableListOf<UserModel>()
-
-        entries.forEach { userLine ->
-            val userEntry = buildUserEntry(userLine)
-            result.add(buildUser(userEntry))
+    fun build(): List<UserModel> = removeInvalidUsers(
+        entries.map { userLine ->
+            buildUser(buildUserEntry(userLine))
         }
-
-        return removeInvalidUsers(result)
-    }
+    )
     // ----------------------------END BUILDER Methods -----------------------------------
 
     /**
@@ -54,10 +49,10 @@ class UserCSVParser {
      */
     private fun buildUserEntry(userLine: List<String>): Map<UserAttribute, String> {
         val userEntry = mutableMapOf<UserAttribute, String>()
-        userLine.forEachIndexed { index, entry ->
+        userLine.mapIndexed { index, entry ->
             userEntry[attributes[index]] = entry
         }
-        return userEntry.toMap()
+        return userEntry
     }
 
     /**

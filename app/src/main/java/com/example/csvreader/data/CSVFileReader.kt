@@ -55,16 +55,10 @@ class CSVFileReader constructor(private val context: Context) {
     }
 
     /**
-     * This method receives all the lines in the file and adds all the results returned by
-     * splitLine() method into a list of lists.
+     * This method receives all the lines in the file and maps them to a list of lists,
+     * each list entry containing a list of attributes on a line
      */
-    private fun splitLines(lines: List<String>): ListOfList<String> {
-        val result : MutableListOfList<String> = mutableListOf()
-        lines.forEach { line ->
-            result.add(splitLine(line))
-        }
-        return result
-    }
+    private fun splitLines(lines: List<String>): ListOfList<String> = lines.map(::splitLine)
 
     /**
      * Method used to split all the attributes present on a line and insert them in a list.

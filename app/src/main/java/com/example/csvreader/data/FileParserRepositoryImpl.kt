@@ -1,7 +1,7 @@
 package com.example.csvreader.data
 
 import android.content.Context
-import com.example.csvreader.domain.usecase.FileParserRepository
+import com.example.csvreader.domain.repository.FileParserRepository
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 

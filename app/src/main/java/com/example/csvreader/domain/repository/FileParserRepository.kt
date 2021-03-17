@@ -1,4 +1,4 @@
-package com.example.csvreader.domain.usecase
+package com.example.csvreader.domain.repository
 
 import com.example.csvreader.domain.model.UserModel
 import kotlinx.coroutines.flow.Flow

@@ -2,7 +2,7 @@ package com.example.csvreader.usecase
 
 import com.example.csvreader.domain.UserResponse
 import com.example.csvreader.domain.model.UserModel
-import com.example.csvreader.domain.usecase.FileParserRepository
+import com.example.csvreader.domain.repository.FileParserRepository
 import com.example.csvreader.domain.usecase.GetUsersUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
