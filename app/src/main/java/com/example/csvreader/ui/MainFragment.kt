@@ -44,7 +44,7 @@ class MainFragment : DaggerFragment() {
         if (state.result.isNotEmpty()) {
             usersAdapter.users = state.result
         }
-        state.error?.let { error -> Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show() }
+        state.error?.let { error -> Toast.makeText(requireContext(), error.message, Toast.LENGTH_LONG).show() }
     }
 
     private fun setupUsersAdapter() {

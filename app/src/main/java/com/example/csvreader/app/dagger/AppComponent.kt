@@ -1,7 +1,7 @@
-package com.example.csvreader.ui.dagger
+package com.example.csvreader.app.dagger
 
 import android.app.Application
-import com.example.csvreader.ui.App
+import com.example.csvreader.app.App
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

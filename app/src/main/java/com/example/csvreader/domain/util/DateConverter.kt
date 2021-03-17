@@ -1,4 +1,4 @@
-package com.example.csvreader.base.util
+package com.example.csvreader.domain.util
 
 import android.util.Log
 import java.text.DateFormat

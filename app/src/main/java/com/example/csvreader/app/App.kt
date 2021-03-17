@@ -1,6 +1,6 @@
-package com.example.csvreader.ui
+package com.example.csvreader.app
 
-import com.example.csvreader.ui.dagger.DaggerAppComponent
+import com.example.csvreader.app.dagger.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

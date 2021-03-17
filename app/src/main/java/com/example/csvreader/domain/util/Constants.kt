@@ -1,4 +1,4 @@
-package com.example.csvreader.base.util
+package com.example.csvreader.domain.util
 
 const val NUMBER_OF_EXPECTED_ATTRIBUTES = 4
 

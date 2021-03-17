@@ -1,4 +1,4 @@
-package com.example.csvreader.ui.dagger
+package com.example.csvreader.app.dagger
 
 import com.example.csvreader.ui.MainFragment
 import dagger.Module

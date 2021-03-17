@@ -1,4 +1,4 @@
-package com.example.csvreader.ui.dagger
+package com.example.csvreader.app.dagger
 
 import android.app.Application
 import android.content.Context

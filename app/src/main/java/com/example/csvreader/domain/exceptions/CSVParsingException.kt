@@ -1,4 +1,4 @@
-package com.example.csvreader.base.exceptions
+package com.example.csvreader.domain.exceptions
 
 import java.lang.Exception
 

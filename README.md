@@ -3,7 +3,6 @@
 # UI module
   - Contains app views (MainActivity and MainFragment) and the components involved in displaying the users (UsersAdapter
   and UserItemView).
-  - Dagger components used for dependency injection are placed in this module.
 
 # Presentation
   - Is the layer that interacts with the UI.
@@ -22,6 +21,9 @@
   - Every result is exposed to presentation layer by UserResponse data class.
   - Also for simplicity reasons, interactors are not present in the app architecture, so the data received from
   data layer is transformed into UserResponse directly into the use case.
+  - Contains a specific exception, CSVParsingException, exception thrown by CSVFileReader.
+  - Util package consists in a constants class, DateConverter utility class and also defines some TypeAliases for
+    simplicity (MutableList<List<T>> as MutableListOfList<T> and List<List<T>> as ListOfList<T>).
 
 # Data
   - This layer holds the implementation of interfaces defined in domain layer: FileParserRepositoryImpl. This class
@@ -32,8 +34,6 @@
   - UserBuilder class holds the purpose of building an user based on a line provided by CSVFileReader. As its name
   suggests, this class relies on builder pattern.
 
-# Base
-  - This module holds exceptions and util classes.
-  - CSVParsingException is the specific exception thrown by CSVFileReader.
-  - util package consists in a constants class, DateConverter utility class and also defines some TypeAliases for
-  simplicity (MutableList<List<T>> as MutableListOfList<T> and List<List<T>> as ListOfList<T>).
+# App
+  - This module holds the Application class and DI related classes.
+  - Dagger components used for dependency injection are placed in dagger package of this module.

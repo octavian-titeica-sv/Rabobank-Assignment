@@ -1,14 +1,14 @@
 package com.example.csvreader.data
 
-import com.example.csvreader.base.util.EMPTY_STRING
-import com.example.csvreader.base.util.ListOfList
-import com.example.csvreader.base.util.convertStringToDate
+import com.example.csvreader.domain.util.EMPTY_STRING
+import com.example.csvreader.domain.util.ListOfList
+import com.example.csvreader.domain.util.convertStringToDate
 import com.example.csvreader.domain.model.UserModel
 
 /**
- * Builder class meant to build a list of users based on entries provided from a CSV file
+ * Class meant to parse the entries provided from a CSV into a list of users.
  */
-class UserBuilder {
+class UserCSVParser {
 
     private var attributes = mutableListOf<UserAttribute>()
     private var entries: ListOfList<String> = mutableListOf()
